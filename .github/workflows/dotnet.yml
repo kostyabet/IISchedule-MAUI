@@ -19,6 +19,8 @@ jobs:
         dotnet-version: 8.0.x
     - name: Install .Net MAUI
       run: dotnet workload install maui
+    - name: Install Newtonsoft NuGet package
+      run: dotnet add package Newtonsoft.Json
     - name: Restore dependencies
       run: dotnet restore IISchedule/
     - name: Build
