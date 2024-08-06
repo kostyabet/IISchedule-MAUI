@@ -2,10 +2,10 @@
 {
     class Schedule
     {
-        public int[]? weekNumber { get; set; }
-        public StudentGroups[]? studentGroups { get; set; }
+        public List<int>? weekNumber { get; set; }
+        public List<StudentGroups>? studentGroups { get; set; }
         public int numSubgroup { get; set; }
-        public string[]? auditories { get; set; }
+        public List<string>? auditories { get; set; }
         public string? startLessonTime { get; set; }
         public string? endLessonTime { get; set; }
         public string? subject { get; set; }
