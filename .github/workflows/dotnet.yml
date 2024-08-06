@@ -20,6 +20,6 @@ jobs:
     - name: Install .Net MAUI
       run: dotnet workload install maui
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore IISchedule/
     - name: Build
       run: dotnet build IISchedule/IISchedule.csproj -c Debag -f net8.0-android --no-restore
