@@ -2,6 +2,7 @@
 using IISchedule.Models.GroupSchedule;
 using IISchedule.Models.EmployeeSchedule;
 using IISchedule.Models.AllGroupsList;
+using IISchedule.Models.AllEmployeesList;
 
 namespace IISchedule.Services
 {
@@ -47,7 +48,7 @@ namespace IISchedule.Services
             }
             return Items;
         }
-        public async Task<IList<AllGroupsList>> GetAllGroups()
+        public async Task<List<AllGroupsList>> GetAllGroups()
         {
             var Items = new List<AllGroupsList>();
             Uri uri = new Uri("https://iis.bsuir.by/api/v1/student-groups");
@@ -56,6 +57,23 @@ namespace IISchedule.Services
             {
                 string responseContent = await response.Content.ReadAsStringAsync();
                 Items = JsonConvert.DeserializeObject<List<AllGroupsList>>(responseContent);
+            }
+            else
+            {
+                Items = null;
+            }
+            return Items;
+        }
+
+        public async Task<List<AllEmployeesList>> GetAllEmployees()
+        {
+            var Items = new List<AllEmployeesList>();
+            Uri uri = new Uri("https://iis.bsuir.by/api/v1/employees/all");
+            HttpResponseMessage response = await _httpClient.GetAsync(uri);
+            if (response.IsSuccessStatusCode)
+            {
+                string responseContent = await response.Content.ReadAsStringAsync();
+                Items = JsonConvert.DeserializeObject<List<AllEmployeesList>>(responseContent);
             }
             else
             {

@@ -56,6 +56,24 @@ namespace IISchedule
                 AllGroupsView.Text = groupsNums;
             }
         }
+
+        private async void OnAllEmployeesClicked(object sender, EventArgs e)
+        {
+            var Items = await _scheduleService.GetAllEmployees();
+            if (Items == null)
+            {
+                AllEmployeesView.Text = "Error while reading API";
+            }
+            else
+            {
+                string groupsNums = string.Empty;
+                foreach (var item in Items)
+                {
+                    groupsNums += $"{item.fio}\n";
+                }
+                AllEmployeesView.Text = groupsNums;
+            }
+        }
     }
 
 }

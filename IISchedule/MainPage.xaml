@@ -59,6 +59,18 @@
                 SemanticProperties.Hint="Кнопка для обращения к API"
                 Clicked="OnAllGroupsClicked"
                 HorizontalOptions="Fill" />
+
+            <Label
+                x:Name="AllEmployeesView"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2" />
+
+            <Button
+                x:Name="AllEmployeesBtn"
+                Text="Нажмите для получения информации" 
+                SemanticProperties.Hint="Кнопка для обращения к API"
+                Clicked="OnAllEmployeesClicked"
+                HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>
 
