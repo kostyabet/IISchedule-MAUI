@@ -13,7 +13,7 @@
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2" />
 
-            <Entry 
+            <Entry
                 x:Name="GroupInput"
                 Placeholder="Введите номер группы"
                 SemanticProperties.Hint="Поле для ввода номера группы"
@@ -46,6 +46,18 @@
                 Text="Нажмите для получения информации" 
                 SemanticProperties.Hint="Кнопка для обращения к API"
                 Clicked="OnEmployeeClicked"
+                HorizontalOptions="Fill" />
+
+            <Label
+                x:Name="AllGroupsView"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2" />
+
+            <Button
+                x:Name="AllGroupsBtn"
+                Text="Нажмите для получения информации" 
+                SemanticProperties.Hint="Кнопка для обращения к API"
+                Clicked="OnAllGroupsClicked"
                 HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>

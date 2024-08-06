@@ -1,4 +1,5 @@
-﻿using IISchedule.Models.EmployeeSchedule;
+﻿using IISchedule.Models.AllGroupsList;
+using IISchedule.Models.EmployeeSchedule;
 using IISchedule.Models.GroupSchedule;
 
 namespace IISchedule.Services
@@ -7,5 +8,6 @@ namespace IISchedule.Services
     {
         Task<GroupSchedule> GetGroupSchedule(string groupNumber);
         Task<EmployeeSchedule> GetEmployeeSchedule(string urlId);
+        Task<IList<AllGroupsList>> GetAllGroups();
     }
 }

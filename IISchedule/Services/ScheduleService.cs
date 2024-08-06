@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using IISchedule.Models.GroupSchedule;
 using IISchedule.Models.EmployeeSchedule;
+using IISchedule.Models.AllGroupsList;
 
 namespace IISchedule.Services
 {
@@ -39,6 +40,22 @@ namespace IISchedule.Services
             {
                 string responseContent = await response.Content.ReadAsStringAsync();
                 Items = JsonConvert.DeserializeObject<EmployeeSchedule>(responseContent);
+            }
+            else
+            {
+                Items = null;
+            }
+            return Items;
+        }
+        public async Task<IList<AllGroupsList>> GetAllGroups()
+        {
+            var Items = new List<AllGroupsList>();
+            Uri uri = new Uri("https://iis.bsuir.by/api/v1/student-groups");
+            HttpResponseMessage response = await _httpClient.GetAsync(uri);
+            if (response.IsSuccessStatusCode)
+            {
+                string responseContent = await response.Content.ReadAsStringAsync();
+                Items = JsonConvert.DeserializeObject<List<AllGroupsList>>(responseContent);
             }
             else
             {
