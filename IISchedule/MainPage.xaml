@@ -8,47 +8,6 @@
             Padding="30,0"
             Spacing="25">
             <Label
-                x:Name="GroupView"
-                Text=""
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2" />
-
-            <Entry
-                x:Name="GroupInput"
-                Placeholder="Введите номер группы"
-                SemanticProperties.Hint="Поле для ввода номера группы"
-                HorizontalOptions="Center"
-                MaxLength="6"
-                />
-
-            <Button
-                x:Name="GroupBtn"
-                Text="Нажмите для получения информации" 
-                SemanticProperties.Hint="Кнопка для обращения к API"
-                Clicked="OnGroupClicked"
-                HorizontalOptions="Fill" />
-
-            <Label
-                x:Name="EmpoyeeView"
-                Text=""
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2" />
-
-            <Entry 
-                x:Name="EmployeeInput"
-                Placeholder="Введите urlId преподователя"
-                SemanticProperties.Hint="Поле для ввода urlId преподователя"
-                HorizontalOptions="Center"
-                />
-
-            <Button
-                x:Name="EmployeeBtn"
-                Text="Нажмите для получения информации" 
-                SemanticProperties.Hint="Кнопка для обращения к API"
-                Clicked="OnEmployeeClicked"
-                HorizontalOptions="Fill" />
-
-            <Label
                 x:Name="AllGroupsView"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2" />
@@ -58,18 +17,6 @@
                 Text="Нажмите для получения информации" 
                 SemanticProperties.Hint="Кнопка для обращения к API"
                 Clicked="OnAllGroupsClicked"
-                HorizontalOptions="Fill" />
-
-            <Label
-                x:Name="AllEmployeesView"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2" />
-
-            <Button
-                x:Name="AllEmployeesBtn"
-                Text="Нажмите для получения информации" 
-                SemanticProperties.Hint="Кнопка для обращения к API"
-                Clicked="OnAllEmployeesClicked"
                 HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>
