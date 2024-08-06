@@ -1,4 +1,4 @@
-﻿namespace IISchedule.Models.GroupSchedule
+﻿namespace IISchedule.Models
 {
     class StudentGroups
     {
