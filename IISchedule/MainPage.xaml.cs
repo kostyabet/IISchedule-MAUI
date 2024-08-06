@@ -1,24 +1,28 @@
-﻿namespace IISchedule
+﻿using IISchedule.Services;
+
+namespace IISchedule
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
+        private readonly ScheduleService _scheduleService;
         public MainPage()
         {
             InitializeComponent();
+            _scheduleService = new ScheduleService(new HttpClient());
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnCounterClicked(object sender, EventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
+            string groupNumber = GroupInput.Text;
+            var Items = await _scheduleService.GetGroupSchedule(groupNumber);
+            if (Items == null)
+            {
+                TaskView.Text = "Error while reading API";
+            }
             else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            {
+                TaskView.Text = Items.studentGroupDto.specialityName;
+            }
         }
     }
 
