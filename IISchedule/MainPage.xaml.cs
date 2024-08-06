@@ -11,17 +11,31 @@ namespace IISchedule
             _scheduleService = new ScheduleService(new HttpClient());
         }
 
-        private async void OnCounterClicked(object sender, EventArgs e)
+        private async void OnGroupClicked(object sender, EventArgs e)
         {
             string groupNumber = GroupInput.Text;
             var Items = await _scheduleService.GetGroupSchedule(groupNumber);
             if (Items == null)
             {
-                TaskView.Text = "Error while reading API";
+                GroupView.Text = "Error while reading API";
             }
             else
             {
-                TaskView.Text = Items.studentGroupDto.specialityName;
+                GroupView.Text = Items.studentGroupDto.specialityName;
+            }
+        }
+
+        private async void OnEmployeeClicked(object sender, EventArgs e)
+        {
+            string urlId = EmployeeInput.Text;
+            var Items = await _scheduleService.GetEmployeeSchedule(urlId);
+            if (Items == null)
+            {
+                EmpoyeeView.Text = "Error while reading API";
+            }
+            else
+            {
+                EmpoyeeView.Text = Items.employeeDto.firstName;
             }
         }
     }

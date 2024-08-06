@@ -1,9 +1,9 @@
-﻿namespace IISchedule.Models.GroupSchedule
+﻿namespace IISchedule.Models.EmployeeSchedule
 {
     class Schedule
     {
         public List<int>? weekNumber { get; set; }
-        public StudentGroups? studentGroups { get; set; }
+        public List<StudentGroups>? studentGroups { get; set; }
         public int numSubgroup { get; set; }
         public List<string>? auditories { get; set; }
         public string? startLessonTime { get; set; }
@@ -17,6 +17,6 @@
         public string? endLessonDate { get; set; }
         public bool? announcement { get; set; }
         public bool? split { get; set; }
-        public Employees? employees { get; set; }
+        public string? employees { get; set; }
     }
 }

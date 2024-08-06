@@ -8,7 +8,7 @@
             Padding="30,0"
             Spacing="25">
             <Label
-                x:Name="TaskView"
+                x:Name="GroupView"
                 Text=""
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2" />
@@ -22,10 +22,30 @@
                 />
 
             <Button
-                x:Name="CounterBtn"
+                x:Name="GroupBtn"
                 Text="Нажмите для получения информации" 
                 SemanticProperties.Hint="Кнопка для обращения к API"
-                Clicked="OnCounterClicked"
+                Clicked="OnGroupClicked"
+                HorizontalOptions="Fill" />
+
+            <Label
+                x:Name="EmpoyeeView"
+                Text=""
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2" />
+
+            <Entry 
+                x:Name="EmployeeInput"
+                Placeholder="Введите urlId преподователя"
+                SemanticProperties.Hint="Поле для ввода urlId преподователя"
+                HorizontalOptions="Center"
+                />
+
+            <Button
+                x:Name="EmployeeBtn"
+                Text="Нажмите для получения информации" 
+                SemanticProperties.Hint="Кнопка для обращения к API"
+                Clicked="OnEmployeeClicked"
                 HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>
