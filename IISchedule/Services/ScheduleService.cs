@@ -9,6 +9,7 @@ using IISchedule.Models.AllSpecializationsList;
 using IISchedule.Models.AllCurEmployeesAnnouncements;
 using IISchedule.Models.AllRelevantDepartmentAnnouncements;
 using IISchedule.Models.AllAudiencesList;
+using IISchedule.Models.LastScheduleUpdate;
 
 namespace IISchedule.Services
 {
@@ -173,6 +174,26 @@ namespace IISchedule.Services
             {
                 string responseContent = await response.Content.ReadAsStringAsync();
                 Items = JsonConvert.DeserializeObject<List<AllAudiencesList>>(responseContent);
+            }
+            else
+            {
+                Items = null;
+            }
+            return Items;
+        }
+        public async Task<LastScheduleUpdate> GetLastScheduleUpdateDate(UpdateType updateType, string searchParameter)
+        {
+            var Items = new LastScheduleUpdate();
+            Uri uri = new Uri(
+                updateType == UpdateType.Employee 
+                    ? $"https://iis.bsuir.by/api/v1/last-update-date/employee?url-id={searchParameter}" 
+                    : $"https://iis.bsuir.by/api/v1/last-update-date/student-group?groupNumber={searchParameter}"
+            );
+            HttpResponseMessage response = await _httpClient.GetAsync(uri);
+            if (response.IsSuccessStatusCode)
+            {
+                string responseContent = await response.Content.ReadAsStringAsync();
+                Items = JsonConvert.DeserializeObject<LastScheduleUpdate>(responseContent);
             }
             else
             {

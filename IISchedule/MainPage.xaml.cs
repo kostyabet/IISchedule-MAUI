@@ -1,4 +1,5 @@
 ﻿using IISchedule.Services;
+using IISchedule.Models.LastScheduleUpdate;
 
 namespace IISchedule
 {
@@ -12,14 +13,14 @@ namespace IISchedule
         }
         private async void OnAllGroupsClicked(object sender, EventArgs e)
         {
-            var Items = await _scheduleService.GetCurrentWeek();
-            if (Items == 0)
+            var Items = await _scheduleService.GetLastScheduleUpdateDate(UpdateType.Employee, "s-nesterenkov");
+            if (Items == null)
             {
                 AllGroupsView.Text = "Error while reading API";
             }
             else
             {
-                AllGroupsView.Text = $"{Items}\n";
+                AllGroupsView.Text = $"{Items.lastUpdateDate}\n";
             }
         }
     }
