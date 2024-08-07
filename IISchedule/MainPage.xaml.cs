@@ -12,7 +12,7 @@ namespace IISchedule
         }
         private async void OnAllGroupsClicked(object sender, EventArgs e)
         {
-            var Items = await _scheduleService.GetCurEmployeesAnnouncements("s-nesterenkov");
+            var Items = await _scheduleService.GetRelevantDepartmentAnnouncements(20003);
             if (Items == null)
             {
                 AllGroupsView.Text = "Error while reading API";

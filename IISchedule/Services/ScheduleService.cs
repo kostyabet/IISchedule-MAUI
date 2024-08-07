@@ -7,6 +7,7 @@ using IISchedule.Models.AllFacultiesList;
 using IISchedule.Models.AllDepartmentsList;
 using IISchedule.Models.AllSpecializationsList;
 using IISchedule.Models.AllCurEmployeesAnnouncements;
+using IISchedule.Models.AllRelevantDepartmentAnnouncements;
 
 namespace IISchedule.Services
 {
@@ -145,6 +146,22 @@ namespace IISchedule.Services
             {
                 string responseContent = await response.Content.ReadAsStringAsync();
                 Items = JsonConvert.DeserializeObject<List<AllCurEmployeesAnnouncements>>(responseContent);
+            }
+            else
+            {
+                Items = null;
+            }
+            return Items;
+        }
+        public async Task<List<AllRelevantDepartmentAnnouncements>> GetRelevantDepartmentAnnouncements(int id)
+        {
+            var Items = new List<AllRelevantDepartmentAnnouncements>();
+            Uri uri = new Uri($"https://iis.bsuir.by/api/v1/announcements/departments?id={id}");
+            HttpResponseMessage response = await _httpClient.GetAsync(uri);
+            if (response.IsSuccessStatusCode)
+            {
+                string responseContent = await response.Content.ReadAsStringAsync();
+                Items = JsonConvert.DeserializeObject<List<AllRelevantDepartmentAnnouncements>>(responseContent);
             }
             else
             {
