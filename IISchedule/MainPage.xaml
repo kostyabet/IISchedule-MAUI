@@ -7,17 +7,7 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Label
-                x:Name="AllGroupsView"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2" />
 
-            <Button
-                x:Name="AllGroupsBtn"
-                Text="Нажмите для получения информации" 
-                SemanticProperties.Hint="Кнопка для обращения к API"
-                Clicked="OnAllGroupsClicked"
-                HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>
 

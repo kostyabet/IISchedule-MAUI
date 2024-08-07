@@ -8,6 +8,7 @@ using IISchedule.Models.AllRelevantDepartmentAnnouncements;
 using IISchedule.Models.AllSpecializationsList;
 using IISchedule.Models.EmployeeSchedule;
 using IISchedule.Models.GroupSchedule;
+using IISchedule.Models.LastScheduleUpdate;
 
 namespace IISchedule.Services
 {
@@ -43,7 +44,13 @@ namespace IISchedule.Services
         /// <returns></returns>
         Task<List<AllRelevantDepartmentAnnouncements>> GetRelevantDepartmentAnnouncements(int id);
         Task<List<AllAudiencesList>> GetAllAudiences();
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="updateType"></param>
+        /// <param name="serchParameter"></param>
+        /// <returns></returns>
+        Task<LastScheduleUpdate> GetLastScheduleUpdateDate(UpdateType updateType, string searchParameter);
         Task<int> GetCurrentWeek();
     }
 }
