@@ -1,5 +1,4 @@
 ﻿using IISchedule.Services;
-using IISchedule.Models.LastScheduleUpdate;
 
 namespace IISchedule
 {
