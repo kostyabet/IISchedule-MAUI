@@ -48,7 +48,7 @@ namespace IISchedule.Services
         /// 
         /// </summary>
         /// <param name="updateType"></param>
-        /// <param name="serchParameter"></param>
+        /// <param name="searchParameter"></param>
         /// <returns></returns>
         Task<LastScheduleUpdate> GetLastScheduleUpdateDate(UpdateType updateType, string searchParameter);
         Task<int> GetCurrentWeek();
