@@ -11,5 +11,4 @@ namespace IISchedule
             _scheduleService = new ScheduleService(new HttpClient());
         }
     }
-
 }
