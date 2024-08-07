@@ -1,4 +1,5 @@
-﻿using IISchedule.Models.AllCurEmployeesAnnouncements;
+﻿using IISchedule.Models.AllAudiencesList;
+using IISchedule.Models.AllCurEmployeesAnnouncements;
 using IISchedule.Models.AllDepartmentsList;
 using IISchedule.Models.AllEmployeesList;
 using IISchedule.Models.AllFacultiesList;
@@ -41,5 +42,8 @@ namespace IISchedule.Services
         /// <param name="id"></param>
         /// <returns></returns>
         Task<List<AllRelevantDepartmentAnnouncements>> GetRelevantDepartmentAnnouncements(int id);
+        Task<List<AllAudiencesList>> GetAllAudiences();
+
+        Task<int> GetCurrentWeek();
     }
 }

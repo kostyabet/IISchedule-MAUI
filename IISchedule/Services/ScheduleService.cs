@@ -8,6 +8,7 @@ using IISchedule.Models.AllDepartmentsList;
 using IISchedule.Models.AllSpecializationsList;
 using IISchedule.Models.AllCurEmployeesAnnouncements;
 using IISchedule.Models.AllRelevantDepartmentAnnouncements;
+using IISchedule.Models.AllAudiencesList;
 
 namespace IISchedule.Services
 {
@@ -19,8 +20,7 @@ namespace IISchedule.Services
         {
             _httpClient = httpClient;
         }
-
-        public async Task<GroupSchedule> GetGroupSchedule(String groupName)
+        public async Task<GroupSchedule> GetGroupSchedule(string groupName)
         {
             var Items = new GroupSchedule();
             Uri uri = new Uri($"https://iis.bsuir.by/api/v1/schedule?studentGroup={groupName}");
@@ -36,7 +36,6 @@ namespace IISchedule.Services
             }
             return Items;
         }
-
         public async Task<EmployeeSchedule> GetEmployeeSchedule(string urlId)
         {
             var Items = new EmployeeSchedule();
@@ -69,7 +68,6 @@ namespace IISchedule.Services
             }
             return Items;
         }
-
         public async Task<List<AllEmployeesList>> GetAllEmployees()
         {
             var Items = new List<AllEmployeesList>();
@@ -86,7 +84,6 @@ namespace IISchedule.Services
             }
             return Items;
         }
-
         public async Task<List<AllFacultiesList>> GetAllFaculties()
         {
             var Items = new List<AllFacultiesList>();
@@ -103,7 +100,6 @@ namespace IISchedule.Services
             }
             return Items;
         }
-
         public async Task<List<AllDepartmentsList>> GetAllDepartments()
         {
             var Items = new List<AllDepartmentsList>();
@@ -120,7 +116,6 @@ namespace IISchedule.Services
             }
             return Items;
         }
-
         public async Task<List<AllSpecializationsList>> GetAllSpecializations()
         {
             var Items = new List<AllSpecializationsList>();
@@ -166,6 +161,38 @@ namespace IISchedule.Services
             else
             {
                 Items = null;
+            }
+            return Items;
+        }
+        public async Task<List<AllAudiencesList>> GetAllAudiences()
+        {
+            var Items = new List<AllAudiencesList>();
+            Uri uri = new Uri("https://iis.bsuir.by/api/v1/auditories");
+            HttpResponseMessage response = await _httpClient.GetAsync(uri);
+            if (response.IsSuccessStatusCode)
+            {
+                string responseContent = await response.Content.ReadAsStringAsync();
+                Items = JsonConvert.DeserializeObject<List<AllAudiencesList>>(responseContent);
+            }
+            else
+            {
+                Items = null;
+            }
+            return Items;
+        }
+        public async Task<int> GetCurrentWeek()
+        {
+            var Items = new int();
+            Uri uri = new Uri("https://iis.bsuir.by/api/v1/schedule/current-week");
+            HttpResponseMessage response = await _httpClient.GetAsync(uri);
+            if (response.IsSuccessStatusCode)
+            {
+                string responseContent = await response.Content.ReadAsStringAsync();
+                Items = JsonConvert.DeserializeObject<int>(responseContent);
+            }
+            else
+            {
+                Items = 0;
             }
             return Items;
         }

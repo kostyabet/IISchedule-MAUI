@@ -12,19 +12,14 @@ namespace IISchedule
         }
         private async void OnAllGroupsClicked(object sender, EventArgs e)
         {
-            var Items = await _scheduleService.GetRelevantDepartmentAnnouncements(20003);
-            if (Items == null)
+            var Items = await _scheduleService.GetCurrentWeek();
+            if (Items == 0)
             {
                 AllGroupsView.Text = "Error while reading API";
             }
             else
             {
-                string groupsNums = string.Empty;
-                foreach (var item in Items)
-                {
-                    groupsNums += $"{item.date}\n";
-                }
-                AllGroupsView.Text = groupsNums;
+                AllGroupsView.Text = $"{Items}\n";
             }
         }
     }
