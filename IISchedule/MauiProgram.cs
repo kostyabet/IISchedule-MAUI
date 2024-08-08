@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 using Mopups.Hosting;
 
 namespace IISchedule
@@ -11,6 +12,7 @@ namespace IISchedule
             builder
                 .UseMauiApp<App>()
                 .ConfigureMopups()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("DinPro-400.ttf", "DinPro");

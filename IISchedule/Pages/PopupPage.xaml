@@ -5,34 +5,39 @@
              xmlns:mopupsanim="clr-namespace:Mopups.Animations;assembly=Mopups"
              x:Class="IISchedule.Pages.PopupPage"
              BackgroundColor="#80000000"
-             CloseWhenBackgroundIsClicked="True">
+             CloseWhenBackgroundIsClicked="True" >
     <ContentPage.Resources>
         <StyleSheet Source="/Styles/PopupStyle.css" />
     </ContentPage.Resources>
     <mopups:PopupPage.Animation>
         <mopupsanim:ScaleAnimation 
-            DurationIn="300"
+            DurationIn="150"
             PositionIn="Bottom"
             PositionOut="Bottom"
             ScaleIn="1"
             ScaleOut="1"
         />
     </mopups:PopupPage.Animation>
-    <Border
+    <Frame
+        CornerRadius="20"
         HeightRequest="600" 
-        VerticalOptions="EndAndExpand" 
+        VerticalOptions="End"
         HorizontalOptions="FillAndExpand"
-    >
-        <Border.StrokeShape>
-            <RoundRectangle CornerRadius="30, 30, 0, 0"/>
-        </Border.StrokeShape>
-        <VerticalStackLayout>
-            <Label
-                StyleClass="title"
-                Text="Выберите расписание" 
-            />
-            <Image 
-                Source="resources/images/pencil.png" />
-        </VerticalStackLayout>
-    </Border>
+        BackgroundColor="#21222B"
+        >
+    <Grid>
+        <Label
+            FontSize="20"
+            FontFamily="DinPro-Bold"
+            StyleClass="title"
+            Text="Выберите расписание" />
+        <ImageButton
+            HeightRequest="20"
+            WidthRequest="20"
+            StyleClass="edit_pencile"
+            HorizontalOptions="End"
+            VerticalOptions="Start"
+            Source="resources/images/pencil.png" />
+        </Grid>
+    </Frame>
 </mopups:PopupPage>
