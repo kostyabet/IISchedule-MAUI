@@ -17,11 +17,10 @@ env:
   DOTNET_VERSION: 8.0.x
   CSPROJ_TO_BUILD: IISchedule/IISchedule.csproj
   PROJECT_FOLDER: IISchedule/
-  PLATFORMS_VERSIONS:
-    ANDROID: net8.0-android
-    WINDOWS: net8.0-windows
-    IOS: net8.0-ios
-    MAC_CATALYST: net8.0-maccatalyst
+  ANDROID_PLATFORM: net8.0-android
+  WINDOWS_PLATFORM: net8.0-windows
+  IOS_PLATFORM: net8.0-ios
+  MAC_CATALYST_PLATFORM: net8.0-maccatalyst
 
 jobs:
   build-ci:
@@ -54,15 +53,15 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Build for Android
-        run: dotnet build ${{ env.CSPROJ_TO_BUILD }} -c ${{ env.BUILD_CONFIGURATION }} -f ${{ env.PLATFORMS_VERSIONS.ANDROID }} --no-restore
+        run: dotnet build ${{ env.CSPROJ_TO_BUILD }} -c ${{ env.BUILD_CONFIGURATION }} -f ${{ env.ANDROID_PLATFORM }} --no-restore
 
       - name: Build for Windows
-        run: dotnet build ${{ env.CSPROJ_TO_BUILD }} -c ${{ env.BUILD_CONFIGURATION }} -f ${{ env.PLATFORMS_VERSIONS.WINDOWS }} --no-restore
+        run: dotnet build ${{ env.CSPROJ_TO_BUILD }} -c ${{ env.BUILD_CONFIGURATION }} -f ${{ env.WINDOWS_PLATFORM }} --no-restore
 
       - name: Build for iOS (macOS required)
         if: runner.os == 'macOS'
-        run: dotnet build ${{ env.CSPROJ_TO_BUILD }} -c ${{ env.BUILD_CONFIGURATION }} -f ${{ env.PLATFORMS_VERSIONS.IOS }} --no-restore
+        run: dotnet build ${{ env.CSPROJ_TO_BUILD }} -c ${{ env.BUILD_CONFIGURATION }} -f ${{ env.IOS_PLATFORM }} --no-restore
 
       - name: Build for Mac Catalyst (macOS required)
         if: runner.os == 'macOS'
-        run: dotnet build ${{ env.CSPROJ_TO_BUILD }} -c ${{ env.BUILD_CONFIGURATION }} -f ${{ env.PLATFORMS_VERSIONS.MAC_CATALYST }} --no-restore
+        run: dotnet build ${{ env.CSPROJ_TO_BUILD }} -c ${{ env.BUILD_CONFIGURATION }} -f ${{ env.MAC_CATALYST_PLATFORM }} --no-restore
