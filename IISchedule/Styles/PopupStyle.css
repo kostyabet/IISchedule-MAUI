@@ -1,5 +1,15 @@
 ﻿.title {
-    margin-left: 30;
-    margin-top: 30;
     font-size: 20;
+}
+
+.humburger {
+    margin-left: 20;
+}
+
+.gear {
+    margin-right: 20;
+}
+
+.edit_pencile {
+    margin-top:8;
 }

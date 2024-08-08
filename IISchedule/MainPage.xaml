@@ -1,19 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="IISchedule.MainPage">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="/Styles/PopupStyle.css" />
+    </ContentPage.Resources>
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#1E1F26" StatusBarStyle="LightContent" x:Name="StatusBarBehavior"/>
+    </Page.Behaviors>
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="30,0"
             Spacing="25">
-
-            <Button 
-                FontFamily="DinPro-Bold-Italic"
-                Text="Click for open"
-                Clicked="OnButtonClick"
-                />
-
+            <Grid
+                HeightRequest="60"
+                BackgroundColor="#1E1F26" >
+                <ImageButton
+                    Source="resources/images/menu.png"
+                    WidthRequest="20"
+                    HeightRequest="20"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center" 
+                    StyleClass="humburger"
+                    Clicked="OnButtonClick" >
+                </ImageButton>
+                <Label
+                    Text="351005"
+                    FontSize="25"
+                    FontFamily="DinPro"
+                    StyleClass="groupNumberHeader"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <ImageButton
+                    Source="resources/images/gear.png" 
+                    WidthRequest="20"
+                    HeightRequest="20"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center" 
+                    StyleClass="gear" >
+                </ImageButton>
+            </Grid>
         </VerticalStackLayout>
     </ScrollView>
 
