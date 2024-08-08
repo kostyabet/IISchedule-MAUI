@@ -8,6 +8,12 @@
             Padding="30,0"
             Spacing="25">
 
+            <Button 
+                FontFamily="DinPro-Bold-Italic"
+                Text="Click for open"
+                Clicked="OnButtonClick"
+                />
+
         </VerticalStackLayout>
     </ScrollView>
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopups:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+             xmlns:mopupsanim="clr-namespace:Mopups.Animations;assembly=Mopups"
+             x:Class="IISchedule.Pages.PopupPage"
+             BackgroundColor="#80000000"
+             CloseWhenBackgroundIsClicked="True">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Styles/PopupStyle.css" />
+    </ContentPage.Resources>
+    <mopups:PopupPage.Animation>
+        <mopupsanim:ScaleAnimation 
+            DurationIn="300"
+            PositionIn="Bottom"
+            PositionOut="Bottom"
+            ScaleIn="1"
+            ScaleOut="1"
+        />
+    </mopups:PopupPage.Animation>
+    <Border
+        HeightRequest="600" 
+        VerticalOptions="EndAndExpand" 
+        HorizontalOptions="FillAndExpand"
+    >
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="30, 30, 0, 0"/>
+        </Border.StrokeShape>
+        <VerticalStackLayout>
+            <Label
+                StyleClass="title"
+                Text="Выберите расписание" 
+            />
+            <Image 
+                Source="resources/images/pencil.png" />
+        </VerticalStackLayout>
+    </Border>
+</mopups:PopupPage>

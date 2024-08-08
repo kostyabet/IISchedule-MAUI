@@ -1,14 +1,18 @@
-﻿using IISchedule.Services;
+﻿using IISchedule.Pages;
+using Mopups.Services;
 
 namespace IISchedule
 {
     public partial class MainPage : ContentPage
     {
-        private readonly ScheduleService _scheduleService;
         public MainPage()
         {
             InitializeComponent();
-            _scheduleService = new ScheduleService(new HttpClient());
+        }
+
+        public void OnButtonClick(object sender, EventArgs e)
+        {
+            MopupService.Instance.PushAsync(new PopupPage());
         }
     }
 }
