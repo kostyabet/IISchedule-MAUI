@@ -40,6 +40,8 @@ jobs:
 
       - name: Install Newtonsoft NuGet package
         run: dotnet add ${{ env.CSPROJ_TO_BUILD }} package Newtonsoft.Json
+      - name: Install Mopups NuGet package
+        run: dotnet add ${{ env.CSPROJ_TO_BUILD }} package Mopups
 
       - name: Restore dependencies
         run: dotnet restore ${{ env.PROJECT_FOLDER }}
