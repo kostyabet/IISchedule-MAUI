@@ -42,6 +42,8 @@ jobs:
         run: dotnet add ${{ env.CSPROJ_TO_BUILD }} package Newtonsoft.Json
       - name: Install Mopups NuGet package
         run: dotnet add ${{ env.CSPROJ_TO_BUILD }} package Mopups
+      - name: Install CommunityToolkit.Maui NuGet package
+        run: dotnet add ${{ env.CSPROJ_TO_BUILD }} package CommunityToolkit.Maui
 
       - name: Restore dependencies
         run: dotnet restore ${{ env.PROJECT_FOLDER }}
