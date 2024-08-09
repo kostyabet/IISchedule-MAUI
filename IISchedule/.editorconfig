@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# IDE0320: Сделать анонимную функцию статической
+csharp_prefer_static_anonymous_function = true

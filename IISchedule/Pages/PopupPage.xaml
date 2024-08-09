@@ -11,7 +11,7 @@
     </ContentPage.Resources>
     <mopups:PopupPage.Animation>
         <mopupsanim:ScaleAnimation 
-            DurationIn="150"
+            DurationIn="100"
             PositionIn="Bottom"
             PositionOut="Bottom"
             ScaleIn="1"
@@ -37,7 +37,8 @@
             StyleClass="edit_pencile"
             HorizontalOptions="End"
             VerticalOptions="Start"
-            Source="resources/images/pencil.png" />
+            Source="resources/images/pencil.png" 
+            Clicked="OnSetScheduleClick"/>
             <Frame
                 BackgroundColor="#1E1F26"
                 CornerRadius="20" 
@@ -45,7 +46,7 @@
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="End" >
                 <ScrollView
-                    VerticalScrollBarVisibility="Never">
+                    VerticalScrollBarVisibility="Never" >
                     <VerticalStackLayout>
 
                     </VerticalStackLayout>
