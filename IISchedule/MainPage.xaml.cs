@@ -10,9 +10,9 @@ namespace IISchedule
             InitializeComponent();
         }
 
-        public void OnButtonClick(object sender, EventArgs e)
+        public async void OnButtonClick(object sender, EventArgs e)
         {
-            MopupService.Instance.PushAsync(new PopupPage());
+            await MopupService.Instance.PushAsync(new PopupPage());
         }
     }
 }

@@ -20,8 +20,9 @@
                 BackgroundColor="#1E1F26" >
                 <ImageButton
                     Source="resources/images/menu.png"
-                    WidthRequest="20"
-                    HeightRequest="20"
+                    Padding="5"
+                    WidthRequest="30"
+                    HeightRequest="30"
                     HorizontalOptions="Start"
                     VerticalOptions="Center" 
                     StyleClass="humburger"
@@ -35,9 +36,10 @@
                     HorizontalOptions="Center"
                     VerticalOptions="Center" />
                 <ImageButton
-                    Source="resources/images/gear.png" 
-                    WidthRequest="20"
-                    HeightRequest="20"
+                    Source="resources/images/gear.png"
+                    Padding="5"
+                    WidthRequest="30"
+                    HeightRequest="30"
                     HorizontalOptions="End"
                     VerticalOptions="Center" 
                     StyleClass="gear" >

@@ -48,7 +48,10 @@
     <Color x:Key="BlueberrieIndigo">#283655</Color>
     <Color x:Key="BlueberrieIndigo2">#1E2A45</Color>
     <Color x:Key="Blueberries">#4D648D</Color>
+    <Color x:Key="Blueberries2">#5c74a1</Color>
     <Color x:Key="VioletBlue">#D0E1F9</Color>
+    <Color x:Key="VioletBlue2">#b8cbe6</Color>
+    <Color x:Key="MidnightBlue2">#2d303b</Color>
 
     <Color x:Key="SplashScreen">#3a547f</Color>
 </ResourceDictionary>

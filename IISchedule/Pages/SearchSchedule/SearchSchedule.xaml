@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopups:PopupPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+    xmlns:mopupsanim="clr-namespace:Mopups.Animations;assembly=Mopups"
+    x:Class="IISchedule.Pages.SearchSchedule.SearchSchedule" >
+    <ContentPage.Resources>
+        <StyleSheet Source="/Styles/SearchSchedule.css" />
+    </ContentPage.Resources>
+    <mopups:PopupPage.Animation>
+        <mopupsanim:ScaleAnimation 
+            DurationIn="100"
+            PositionIn="Bottom"
+            PositionOut="Bottom"
+            ScaleIn="1"
+            ScaleOut="1"
+        />
+    </mopups:PopupPage.Animation>
+    <Grid
+        VerticalOptions="FillAndExpand"
+        HorizontalOptions="FillAndExpand"
+        BackgroundColor="#21222B"
+        RowDefinitions="70, 60, 1, 2, *" >
+        <Frame
+            VerticalOptions="StartAndExpand"
+            HorizontalOptions="CenterAndExpand"
+            BackgroundColor="#2d303b"
+            HeightRequest="60"
+            Grid.Row="0"
+            Grid.Column="0" 
+            CornerRadius="30"
+            StyleClass="SearchBarFont"
+            >
+            <SearchBar
+                CancelButtonColor="#D0E1F9"
+                TextColor="#D0E1F9"
+                Placeholder="Номер группы или фамилия"
+                PlaceholderColor="#b8cbe6"
+                FontFamily="DinPro" 
+                FontSize="18"
+                HeightRequest="28"
+                StyleClass="SearchBar" >
+
+            </SearchBar>
+        </Frame>
+        <Grid 
+            HorizontalOptions="FillAndExpand"
+            BackgroundColor="#21222B"
+            Grid.Row="1"
+            Grid.Column="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+               </Grid.ColumnDefinitions>
+            <Button
+                LineBreakMode="WordWrap"
+                BorderWidth="1"
+                x:Name="SaveButton"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                FontFamily="DinPro"
+                Text="Сохранённые" 
+                Grid.Column="0"
+                BackgroundColor="Transparent"
+                TextColor="#D0E1F9"
+                FontAttributes="Bold" 
+                Clicked="OnSaveButtonClicked"/>
+            <Button 
+                LineBreakMode="WordWrap"
+                BorderWidth="1"
+                x:Name="GroupButton"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                FontFamily="DinPro"
+                Text="Группы" 
+                Grid.Column="1"
+                BackgroundColor="Transparent"
+                TextColor="#D0E1F9"
+                FontAttributes="Bold" 
+                Clicked="OnGroupButtonClicked" />
+            <Button 
+                LineBreakMode="WordWrap"
+                BorderWidth="1"
+                x:Name="EmployeeButton"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                FontFamily="DinPro"
+                Text="Преподаватели" 
+                Grid.Column="2"
+                BackgroundColor="Transparent"
+                TextColor="#D0E1F9"
+                FontAttributes="Bold" 
+                Clicked="OnEmployeeButtonClicked" />
+        </Grid>
+        <BoxView 
+            Grid.Row="2"
+            Grid.Column="0"
+            Color="#D0E1F9"
+            HeightRequest="1"
+            HorizontalOptions="FillAndExpand"/>
+        <ActivityIndicator 
+            Grid.Row="3"
+            Grid.Column="0"
+            IsRunning="{Binding IsLoading}" 
+            IsVisible="{Binding IsLoading}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
+        <ScrollView
+            Grid.Row="4"
+            Grid.Column="0" 
+            VerticalScrollBarVisibility="Never" >
+            <VerticalStackLayout
+                x:Name="InfoOutput"
+                Padding="10" >
+                <!-- Hi bro -->
+                <CollectionView 
+                    ItemsSource="{Binding Groups}" 
+                    IsVisible="False"
+                    x:Name="GroupsCollectionView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame 
+                                Margin="0,0,0,5"
+                                Padding="5"
+                                BackgroundColor="#2d303b"
+                                BorderColor="#00000000"
+                                CornerRadius="5"
+                                HeightRequest="70" >
+                                <StackLayout
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center" >
+                                    <Label 
+                                        Text="{Binding name}"
+                                        FontSize="22"
+                                        FontFamily="DinPro"
+                                        FontAttributes="Bold" />
+                                    <Label 
+                                        Text="{Binding description}"
+                                        FontFamily="DinPro"
+                                        FontSize="14" />
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <!-- Hi bro -->
+                <CollectionView 
+                    ItemsSource="{Binding Employees}" 
+                    IsVisible="False"
+                    x:Name="EmployeesCollectionView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame 
+                                Margin="0,0,0,5"
+                                Padding="5"
+                                BackgroundColor="#2d303b"
+                                BorderColor="#00000000"
+                                CornerRadius="5"
+                                HeightRequest="70" >
+                                <StackLayout
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center" >
+                                    <Label 
+                                        Text="{Binding name}"
+                                        FontSize="22"
+                                        FontFamily="DinPro"
+                                        FontAttributes="Bold" />
+                                    <Label 
+                                        Text="{Binding description}"
+                                        FontFamily="DinPro"
+                                        FontSize="14" />
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</mopups:PopupPage>
