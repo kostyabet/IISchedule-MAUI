@@ -25,19 +25,32 @@
         HorizontalOptions="FillAndExpand"
         BackgroundColor="#21222B"
         >
-    <Grid>
-        <Label
+        <Grid>
+            <Label
             FontSize="20"
             FontFamily="DinPro-Bold"
             StyleClass="title"
             Text="Выберите расписание" />
-        <ImageButton
-            HeightRequest="20"
-            WidthRequest="20"
+            <ImageButton
+            HeightRequest="30"
+            WidthRequest="30"
             StyleClass="edit_pencile"
             HorizontalOptions="End"
             VerticalOptions="Start"
             Source="resources/images/pencil.png" />
+            <Frame
+                BackgroundColor="#1E1F26"
+                CornerRadius="20" 
+                HeightRequest="510"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="End" >
+                <ScrollView
+                    VerticalScrollBarVisibility="Never">
+                    <VerticalStackLayout>
+
+                    </VerticalStackLayout>
+                </ScrollView>
+            </Frame>
         </Grid>
     </Frame>
 </mopups:PopupPage>
