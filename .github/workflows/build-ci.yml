@@ -44,7 +44,9 @@ jobs:
         run: dotnet add ${{ env.CSPROJ_TO_BUILD }} package Mopups
       - name: Install CommunityToolkit.Maui NuGet package
         run: dotnet add ${{ env.CSPROJ_TO_BUILD }} package CommunityToolkit.Maui
-
+      - name: Install Refractored.MvvmHelpers NuGet package
+        run: dotnet add ${{ env.CSPROJ_TO_BUILD }} package Refractored.MvvmHelpers
+        
       - name: Restore dependencies
         run: dotnet restore ${{ env.PROJECT_FOLDER }}
 
